@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,10 +30,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 str = et_input.getText().toString();                                               // Get string and input str
-                Intent intent = new Intent(MainActivity.this,SubActivity.class);    // Create intent
+                Intent intent = new Intent(MainActivity.this, SubActivity.class);    // Create intent
                 intent.putExtra("str", str);                                                // Put str to intent
                 startActivity(intent);                                                             // Move to next Activity, which is SubActivity
             }
         });
+
+        ImageView iv_basic;
+        iv_basic = findViewById(R.id.iv_basic);
+        iv_basic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(),"토스트 메세지 테스트",Toast.LENGTH_SHORT).show();    // Show toast message "토스트 메세지 테스트"
+            }
+        });
+
     }
 }
